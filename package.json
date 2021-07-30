@@ -1,0 +1,17 @@
+{
+  "name": "covid19nearme-notifications",
+  "version": "1.0.0",
+  "description": "Publishes notifications for new exposure sites from the COVID-19 Near Me feed",
+  "main": "index.js",
+  "author": "jxeeno pty ltd",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.21.1",
+    "config": "^3.3.6",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.33",
+    "mongodb": "^4.0.1",
+    "twitter-lite": "^1.1.0"
+  }
+}

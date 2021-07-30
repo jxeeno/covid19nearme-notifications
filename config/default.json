@@ -1,0 +1,16 @@
+{
+    "mongo": {
+        "uri": ""
+    },
+    "twitter": {
+        "apiKey": "",
+        "apiSecretKey": "",
+        "bearerToken": ""
+    },
+    "twitterAccounts": {
+        "covid19nearmeau": {
+            "accTkn": "",
+            "accTknSecret": ""
+        }
+    }
+}

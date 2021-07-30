@@ -1,0 +1,15 @@
+{
+    "mongo": {
+        "uri": "MONGO_URI"
+    },
+    "twitter": {
+        "apiKey": "TWITTER_API_KEY",
+        "apiSecretKey": "TWITTER_API_SECRET"
+    },
+    "twitterAccounts": {
+        "covid19nearmeau": {
+            "accTkn": "TWITTER_ACC_COVID19NEARME_TKN",
+            "accTknSecret": "TWITTER_ACC_COVID19NEARME_SEC"
+        }
+    }
+}
