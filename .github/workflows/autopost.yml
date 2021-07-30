@@ -8,8 +8,6 @@ jobs:
   tweet:
     name: Tweet
     runs-on: ubuntu-latest
-    environment:
-      name: Production
     steps:
     - name: Checkout
       uses: actions/checkout@v2
