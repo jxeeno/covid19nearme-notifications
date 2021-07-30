@@ -17,6 +17,12 @@ jobs:
       with:
         node-version: '12'
     - name: Tweet
+      env:
+        MONGO_URI: ${{ secrets.MONGO_URI }}
+        TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+        TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+        TWITTER_ACC_COVID19NEARME_TKN: ${{ secrets.TWITTER_ACC_COVID19NEARME_TKN }}
+        TWITTER_ACC_COVID19NEARME_SEC: ${{ secrets.TWITTER_ACC_COVID19NEARME_SEC }}
       run: |
         yarn
         node index.js
