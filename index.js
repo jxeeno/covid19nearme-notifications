@@ -30,13 +30,13 @@ const TZS = {
 }
 
 const FOOTERS = {
-    VIC: '🔗 Official: https://www.coronavirus.vic.gov.au/exposure-sites\n🔗 Track changes at https://covid19nearme.com.au/state/vic',
-    NSW: '🔗 Official: https://www.nsw.gov.au/covid-19/nsw-covid-19-case-locations\n🔗 Track changes at https://covid19nearme.com.au/state/nsw',
-    QLD: '🔗 Official: https://www.qld.gov.au/health/conditions/health-alerts/coronavirus-covid-19/current-status/contact-tracing\n🔗 Track changes at https://covid19nearme.com.au/state/qld',
-    SA: '🔗 Official: https://www.sahealth.sa.gov.au/wps/wcm/connect/public+content/sa+health+internet/conditions/infectious+diseases/covid-19/testing+and+tracing/contact+tracing/contact+tracing\n🔗 Track changes at https://covid19nearme.com.au/state/sa',
-    WA: '🔗 Official: https://healthywa.wa.gov.au/Articles/A_E/Coronavirus/Locations-visited-by-confirmed-cases\n🔗 Track changes at https://covid19nearme.com.au/state/wa',
-    NT: '🔗 Official: https://coronavirus.nt.gov.au/stay-safe/case-location-alerts-and-public-exposure-sites\n🔗 Track changes at https://covid19nearme.com.au/state/nt',
-    ACT: '🔗 Official: https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations\n🔗 Track changes at https://covid19nearme.com.au/state/act',
+    VIC: '🔗 Official: https://www.coronavirus.vic.gov.au/exposure-sites\n🔗 View & track: https://covid19nearme.com.au/state/vic',
+    NSW: '🔗 Official: https://www.nsw.gov.au/covid-19/nsw-covid-19-case-locations\n🔗 View & track: https://covid19nearme.com.au/state/nsw',
+    QLD: '🔗 Official: https://www.qld.gov.au/health/conditions/health-alerts/coronavirus-covid-19/current-status/contact-tracing\n🔗 View & track: https://covid19nearme.com.au/state/qld',
+    SA: '🔗 Official: https://www.sahealth.sa.gov.au/wps/wcm/connect/public+content/sa+health+internet/conditions/infectious+diseases/covid-19/testing+and+tracing/contact+tracing/contact+tracing\n🔗 View & track: https://covid19nearme.com.au/state/sa',
+    WA: '🔗 Official: https://healthywa.wa.gov.au/Articles/A_E/Coronavirus/Locations-visited-by-confirmed-cases\n🔗 View & track: https://covid19nearme.com.au/state/wa',
+    NT: '🔗 Official: https://coronavirus.nt.gov.au/stay-safe/case-location-alerts-and-public-exposure-sites\n🔗 View & track: https://covid19nearme.com.au/state/nt',
+    ACT: '🔗 Official: https://www.covid19.act.gov.au/act-status-and-response/act-covid-19-exposure-locations\n🔗 View & track: https://covid19nearme.com.au/state/act',
     NZ: '🔗 Official: https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-health-advice-public/contact-tracing-covid-19/covid-19-contact-tracing-locations-interest\n🔗 Track changes at https://covid19nearme.co.nz',
     
 }
@@ -189,7 +189,7 @@ const tweetDiff = async (state, diff) => {
         }
     }
 
-    iterType(`➕ ${diff.new.length} new locations`, diff.new);
+    iterType(`➕ ${diff.new.length} new ${diff.new.length > 1 ? 'locations' : 'location'}`, diff.new);
     iterType(`⚠️ Updated locations`, diff.updated);
 
     if(lastValidTweet != null){
