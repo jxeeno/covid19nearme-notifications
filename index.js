@@ -148,9 +148,15 @@ const processState = async (state, collection) => {
 const tweetDiff = async (state, diff) => {
     let tweets = [];
 
+    // generate time rounded to 10 mins
+    let time = moment().tz(TZS[state]);
+    let remainder = 10 - (time.minute() % 10);
+    time.add(remainder, "minutes");
+    const timeStr = time.format('D MMM h:mma').replace(':00', '');
+
     const TWEET_LIMIT = 280;
     let footer = '\n' + FOOTERS[state];
-    let header = HEADERS[state].replace('%time%', moment().tz(TZS[state]).format('D MMM ha')); // + '\n';
+    let header = HEADERS[state].replace('%time%', timeStr);
 
     let totalItems = diff.new.length + diff.updated.length;
     let ii = 0;
