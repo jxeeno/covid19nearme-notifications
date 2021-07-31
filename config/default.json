@@ -12,5 +12,8 @@
             "accTkn": "",
             "accTknSecret": ""
         }
+    },
+    "covid19nearme": {
+        "dataUri": "https://covid19nearme.com.au/data/locations.%state%.latest.json"
     }
 }

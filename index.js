@@ -42,7 +42,11 @@ const FOOTERS = {
 }
 
 const getExposureList = async (state) => {
-    const {data} = await axios.get('https://covid19nearme.com.au/data/locations.'+state+'.latest.json');
+    const {data} = await axios.get(config.get('covid19nearme.dataUri').replace('%state%', state), {
+        params: {
+            ts: moment().unix()
+        }
+    });
     return data.locations;
 }
 
