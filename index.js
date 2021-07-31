@@ -57,9 +57,9 @@ const processState = async (state, collection) => {
     // only get locations which have at least one active exposure
     const activeLocations = locations.filter(location => location.exposures.some(exposure => !exposure.dismissed));
 
-    const persistExposures = async () => {
+    const persistExposures = async (resp) => {
         const activeExposures = activeLocations.flatMap(location => location.exposures.filter(exposure => !exposure.dismissed));
-        const exposureMemory = {};
+        const exposureMemory = resp ? resp.exposures : {};
         for(const exposure of activeExposures){
             exposureMemory[exposure.exposureUuid] = [exposure.version]
         }
@@ -142,7 +142,7 @@ const processState = async (state, collection) => {
     await tweetDiff(state, diff);
     
     // now remember exposure sites
-    await persistExposures();
+    await persistExposures(resp);
 }
 
 const tweetDiff = async (state, diff) => {
