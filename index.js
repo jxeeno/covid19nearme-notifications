@@ -180,12 +180,12 @@ const tweetDiff = async (state, diff) => {
     
             let item = arr[i];
     
-            let currentTweet = (hasHeader ? [header] : ['...']).concat(currentLines, [item[0]], !isLast ? ['...'] : []).concat(hasFooter ? [footer] : [], hasHeader && isLast ? [] : ['\n(X/X)']).join('\n');
+            let currentTweet = (hasHeader ? [header] : ['...']).concat(currentLines, [item[0]], !isLast ? ['...'] : []).concat(hasFooter ? [footer] : [], hasHeader && isLast ? [] : ['\n(XX/XX)']).join('\n');
             if(urlTo23(currentTweet).length >= TWEET_LIMIT){
                 tweets.push(lastValidTweet);
                 currentLines = []
                 hasHeader = false;
-                currentTweet = (hasHeader ? [header] : ['...']).concat(currentLines, [item[0]], !isLast ? ['...'] : []).concat(hasFooter ? [footer] : [], hasHeader && isLast ? [] : ['\n(X/X)']).join('\n');
+                currentTweet = (hasHeader ? [header] : ['...']).concat(currentLines, [item[0]], !isLast ? ['...'] : []).concat(hasFooter ? [footer] : [], hasHeader && isLast ? [] : ['\n(XX/XX)']).join('\n');
             }
     
             currentLines.push(item[0]);
@@ -202,7 +202,7 @@ const tweetDiff = async (state, diff) => {
 
     if(tweets.length > 0){
         // replace with pagination
-        tweets = tweets.map((tweet, i, arr) => tweet.replace('(X/X)', `(${i+1}/${arr.length})`))
+        tweets = tweets.map((tweet, i, arr) => tweet.replace('(XX/XX)', `(${i+1}/${arr.length})`))
 
         console.log(tweets)
         
