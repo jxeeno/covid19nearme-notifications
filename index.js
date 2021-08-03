@@ -1,6 +1,7 @@
 const axios = require('axios');
 const { MongoClient } = require('mongodb');
 const config = require('config');
+const lodash = require('lodash');
 const moment = require('moment-timezone');
 const tweetThread = require('./tweet');
 
@@ -128,15 +129,8 @@ const processState = async (state, collection) => {
         }
     }
 
-    const sorter = (a, b) => {
-        if(a[2].localeCompare(b[2]) === 0){
-            return a[2].localeCompare(b[2]);
-        }
-
-        return a[1] - b[1];
-    }
-    diff.new.sort((a, b) => sorter(a, b));
-    diff.updated.sort((a, b) => sorter(a, b));
+    diff.new = lodash.sortBy(diff.new, [o => o[1], o => o[2]]);
+    diff.updated = lodash.sortBy(diff.new, [o => o[1], o => o[2]]);
 
     console.log(state, diff)
     await tweetDiff(state, diff);

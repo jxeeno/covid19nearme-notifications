@@ -9,6 +9,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "config": "^3.3.6",
+    "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.33",
     "mongodb": "^4.0.1",
