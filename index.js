@@ -130,7 +130,7 @@ const processState = async (state, collection) => {
     }
 
     diff.new = lodash.sortBy(diff.new, [o => o[1], o => o[2]]);
-    diff.updated = lodash.sortBy(diff.new, [o => o[1], o => o[2]]);
+    diff.updated = lodash.sortBy(diff.updated, [o => o[1], o => o[2]]);
 
     console.log(state, diff)
     await tweetDiff(state, diff);
