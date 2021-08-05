@@ -196,8 +196,8 @@ const tweetDiff = async (state, diff) => {
 
     // generate time rounded to 10 mins
     let time = moment().tz(TZS[state]);
-    let remainder = 10 - (time.minute() % 10);
-    time.add(remainder, "minutes");
+    let remainder = (time.minute() % 10);
+    time.subtract(remainder, "minutes");
     const timeStr = time.format('D MMM h:mma').replace(':00', '');
 
     const TWEET_LIMIT = 280;
