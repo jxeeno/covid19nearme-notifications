@@ -164,8 +164,9 @@ const tweetDiff = async (state, diff) => {
     }
 
     const iterType = (section, arr) => {
+        let pendingLines = [];
         if(arr.length > 0){
-            currentLines.push('\n' + section);
+            pendingLines.push('\n' + section);
         }
         
         for(let i = 0; i < arr.length; i++){
@@ -180,16 +181,17 @@ const tweetDiff = async (state, diff) => {
     
             let item = arr[i];
     
-            let currentTweet = (hasHeader ? [header] : ['...']).concat(currentLines, [item[0]], !isLast ? ['...'] : []).concat(hasFooter ? [footer] : [], hasHeader && isLast ? [] : ['\n(XX/XX)']).join('\n');
+            let currentTweet = (hasHeader ? [header] : ['...']).concat(currentLines, pendingLines, [item[0]], !isLast ? ['...'] : []).concat(hasFooter ? [footer] : [], hasHeader && isLast ? [] : ['\n(XX/XX)']).join('\n');
             if(urlTo23(currentTweet).length >= TWEET_LIMIT){
                 tweets.push(lastValidTweet);
                 currentLines = []
                 hasHeader = false;
-                currentTweet = (hasHeader ? [header] : ['...']).concat(currentLines, [item[0]], !isLast ? ['...'] : []).concat(hasFooter ? [footer] : [], hasHeader && isLast ? [] : ['\n(XX/XX)']).join('\n');
+                currentTweet = (hasHeader ? [header] : ['...']).concat(currentLines, pendingLines, [item[0]], !isLast ? ['...'] : []).concat(hasFooter ? [footer] : [], hasHeader && isLast ? [] : ['\n(XX/XX)']).join('\n');
             }
     
             currentLines.push(item[0]);
             lastValidTweet = currentTweet;
+            pendingLines = []
         }
     }
 
