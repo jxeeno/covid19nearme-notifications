@@ -106,7 +106,8 @@ const processState = async (state, collection) => {
         }
 
         let locationName = location.locationName;
-        if(location.locationSuburb !== 'Public Transport' && !locationName.toUpperCase().includes(location.locationSuburb.toUpperCase())){
+        let chkSuburb = location.locationSuburb.replace(/\s*,.*$/, '');
+        if(location.locationSuburb !== 'Public Transport' && !locationName.toUpperCase().includes(chkSuburb.toUpperCase())){
             // suburb not there
             locationName += `, ${location.locationSuburb}`
         }
