@@ -49,6 +49,9 @@ const getExposureList = async (state) => {
     const {data} = await axios.get(config.get('covid19nearme.dataUri').replace('%state%', state), {
         params: {
             ts: moment().unix()
+        },
+        headers: {
+            "accept-encoding": "gzip"   
         }
     });
     return data;
