@@ -11,7 +11,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 const HEADERS = {
     VIC: 'COVID-19 Near Me updated with latest info from @VicGovDH (%time%):',
     NSW: 'COVID-19 Near Me updated with latest info from @NSWHealth (%time%):',
-    QLD: 'COVID-19 Near Me updated with latest info from @qldhealthnews (%time%):',
+    QLD: 'COVID-19 Near Me updated with latest info from @qldhealth (%time%):',
     SA: 'COVID-19 Near Me updated with latest info from @SAHealth (%time%):',
     WA: 'COVID-19 Near Me updated with latest info from @WAHealth (%time%):',
     NT: 'COVID-19 Near Me updated with latest info from NT Health (%time%):',
